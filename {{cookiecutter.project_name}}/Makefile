@@ -9,7 +9,7 @@ EXE_NAME := {{ cookiecutter.project_name }}
 
 GO_BUILD = go build
 GO_BUILD_FLAGS = -a --installsuffix cgo --ldflags="-s" -o bin/$(EXE_NAME)
-GO_BUILD_CMD = CGO_ENABLED=0 $(GO_BUILD) $(GO_BUILD_FLAGS) {{ cookiecutter.package_path }}/{{ cookiecutter.project_name }}/cmd/{{ cookiecutter.project_name }}
+GO_BUILD_CMD = CGO_ENABLED=0 $(GO_BUILD) $(GO_BUILD_FLAGS) github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.project_name }}/cmd/{{ cookiecutter.project_name }}
 
 DOCKER_BUILD_CMD = docker run --rm -it -v "$(GOPATH)":/g -v "$(shell pwd)/docker/":/app -e "GOPATH=/g" -w /app $(BUILD_IMAGE) sh -c '$(GO_BUILD_CMD)'
 DOCKER_PACKAGE_CMD = docker build -t $(IMAGE_REPOSITORY_NAME)/$(IMAGE_NAME):$(IMAGE_TAG) docker/
