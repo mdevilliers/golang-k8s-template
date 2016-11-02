@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ cookiecutter.project_name }}-svc-v1
+spec:
+  selector:
+    name: {{ cookiecutter.project_name }}
+    version: "1"
+  ports:
+    - targetPort: 3000
+      port: 8080
+      protocol: TCP
