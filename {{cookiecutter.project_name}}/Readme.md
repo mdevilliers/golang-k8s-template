@@ -1,11 +1,15 @@
-{{ cookiecutter.project_name }}
--------------------------------
+# {{ cookiecutter.project_name }}
 
 TODO: add a description for your project
 
 
-Build
-=====
+## Develop
+
+To list makefile targets
+
+```
+make help
+```
 
 Golang
 -----
@@ -35,44 +39,14 @@ Images are tagged with the format {git branch name}-{git short hash}
 Kubernetes
 ----------
 
-The development workflow is optimised around a standard Kubernetes toolset.
-
-- minikube
+To deploy to Kubernetes -.
 
 ```
-minikube start
 make image
 make deploy
-
 ```
 
 Note that the image points to the `latest` tag for developing locally.
 
 Please remember that 'latest is not a version' and amend for your production deploy accordingly.
-
-
-Develop
-=======
-
-To list makefile targets
-
-```
-make help
-```
-
-Dependancies
-------------
-
-- ???
-
-Preflight
----------
-
-- ???
-
-Tests
------
-
-- ???
-
 
