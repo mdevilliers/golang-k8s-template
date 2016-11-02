@@ -25,15 +25,22 @@ Parameter              | Example          | Notes
 `github_account`       | mdevilliers      | Your github repository or user name
 
 
-## Features
-
-I have made no choice as to golang libraries, dependancy managment tools etc. 
-
-I prefer to think of this as one step beyond a 'hello world' application that can be built and deployed onto K8s.
-
 ## Choices
 
+I have made no choice as to golang libraries, dependancy managment tools etc.
+
+This project generates a 'hello world' application with the configuration required to be built and deployed into K8s.
+
+
+## FAQ
+
+- I've made my project - what next?
+
+Run `make help` to discover the available targets
+
 The Makefile assumes you have a working installation of Docker and Kubernetes.
+
+- Anything else?
 
 For local Kubernetes development I would recommend -
 
