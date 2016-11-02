@@ -27,7 +27,7 @@ To build the Docker image -
 make image
 ```
 
-The application is built in the `build image` e.g. golang:{some version} before being published to your configured Docker repository.
+The application is built locally before being published to your configured Docker repository.
 
 Images are tagged with the format {git branch name}-{git short hash}
 
@@ -35,26 +35,35 @@ Images are tagged with the format {git branch name}-{git short hash}
 Kubernetes
 ----------
 
-The development workflow is optimised around the standard Kubernetes toolset
+The development workflow is optimised around a standard Kubernetes toolset.
 
 - minikube
-- helm
 
 ```
 minikube start
-
+make image
+make deploy
 
 ```
 
+Note that the image points to the `latest` tag for developing locally.
+
+Please remember that 'latest is not a version' and amend for your production deploy accordingly.
 
 
 Develop
 =======
 
+To list makefile targets
+
+```
+make help
+```
+
 Dependancies
 ------------
 
-- glide
+- ???
 
 Preflight
 ---------
