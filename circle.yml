@@ -1,0 +1,6 @@
+dependencies:
+  post:
+    - pip install -U cookiecutter
+test:
+  override:
+    - make check
