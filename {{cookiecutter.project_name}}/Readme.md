@@ -40,6 +40,14 @@ The development workflow is optimised around the standard Kubernetes toolset
 - minikube
 - helm
 
+```
+minikube start
+
+
+```
+
+
+
 Develop
 =======
 
