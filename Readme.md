@@ -2,7 +2,7 @@
 
 This project exists to provide a template to kick-start a golang project that will 
 
-- build in a minimal Docker container
+- build a minimal Docker container
 - deploy to Kubernetes
 
 
@@ -12,6 +12,15 @@ This project exists to provide a template to kick-start a golang project that wi
 $ pip install --user cookiecutter
 $ cookiecutter gh:mdevilliers/golang-k8s-template
 ```
+
+Parameters
+
+Parameter              | Example          | Notes
+-----------------------|------------------|-----------------------------------
+`project_name`         | awesome-service  | The name of your service
+`docker_repository`    | mdevilliers      | The name of the docker repository
+`github_account`       | mdevilliers      | Your github repository or user name
+
 
 ## Features
 
