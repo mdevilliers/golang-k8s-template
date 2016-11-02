@@ -16,6 +16,7 @@ spec:
       containers:
         - image: {{ cookiecutter.docker_repository }}/{{ cookiecutter.project_name }}:latest
           name: {{cookiecutter.project_name}}
+          imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 3000
               protocol: TCP
