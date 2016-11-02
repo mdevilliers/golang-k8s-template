@@ -1,7 +1,6 @@
 # golang-k8s-template
 
-
-[![Build Status](https://travis-ci.org/mdevilliers/golang-k8s-template.svg?branch=master)](https://travis-ci.org/mdevilliers/golang-k8s-template)
+[![CircleCI](https://circleci.com/gh/mdevilliers/golang-k8s-template.svg?style=svg)](https://circleci.com/gh/mdevilliers/golang-k8s-template)
 
 This project exists to provide a template to kick-start a golang project that will 
 

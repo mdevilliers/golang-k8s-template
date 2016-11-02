@@ -1,0 +1,16 @@
+machine:
+  environment:
+    GOPATH: "/home/ubuntu/.go_workspace"
+  services:
+    - docker
+dependencies:
+  post:
+    - pip install -U cookiecutter
+    - git config --global user.email "you@example.com"
+    - git config --global user.name "Your Name"
+test:
+  override:
+    - mkdir -p ${GOPATH}/src/github.com/mdevilliers
+    - cookiecutter --no-input -o ${GOPATH}/src/github.com/mdevilliers .
+    - cd ${GOPATH}/src/github.com/mdevilliers/awesome-service; git init; git add .; git commit -m "Initial commit"
+    - cd ${GOPATH}/src/github.com/mdevilliers/awesome-service; make build; make image
