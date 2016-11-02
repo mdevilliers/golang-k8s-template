@@ -1,6 +1,8 @@
 machine:
   environment:
     GOPATH: "/home/ubuntu/.go_workspace"
+  services:
+    - docker
 dependencies:
   post:
     - pip install -U cookiecutter
