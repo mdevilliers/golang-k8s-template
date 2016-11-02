@@ -7,4 +7,8 @@ python:
 install:
   - pip install --upgrade pip
   - pip install -U cookiecutter
-script: make check
+script:
+  - mkdir -p /usr/local/go_workspace/src/github.com/mdevilliers .
+  - cookiecutter --no-input -o /usr/local/go_workspace/src/github.com/mdevilliers
+  - cd /usr/local/go_workspace/src/github.com/mdevilliers/awesome-service; git init; git add .; git commit -m "Initial commit"
+  - cd /usr/local/go_workspace/src/github.com/mdevilliers/awesome-service; make build; make image
