@@ -33,15 +33,15 @@ This project generates a 'hello world' application with the configuration requir
 
 ## FAQ
 
-- I've made my project - what next?
+Q - I've made my project - what next?
 
-Run `make help` to discover the available targets
+A - Run `make help` to discover the available targets
 
 The Makefile assumes you have a working installation of Docker and Kubernetes.
 
-- Anything else?
+Q Anything else?
 
-For local Kubernetes development I would recommend -
+A - For local Kubernetes development I would recommend -
 
 - installing kubectl
 - installing [minikube](https://github.com/kubernetes/minikube)
@@ -51,4 +51,8 @@ For local Kubernetes development I would recommend -
 ```
  eval $(minikube docker-env)
 ```
+
+## Thanks
+
+[jml](https://github.com/jml)
 
