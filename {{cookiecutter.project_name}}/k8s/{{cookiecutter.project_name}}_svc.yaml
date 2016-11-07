@@ -3,6 +3,8 @@ apiVersion: v1
 metadata:
   name: {{ cookiecutter.project_name }}-svc-v1
 spec:
+  # using a "NodePort" to publish the service - see http://kubernetes.io/docs/user-guide/services/#type-nodeport
+  type: "NodePort"
   selector:
     name: {{ cookiecutter.project_name }}
     version: "1"
