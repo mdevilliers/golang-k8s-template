@@ -4,7 +4,6 @@ jobs:
     machine: true
     steps:
       - checkout
-      - setup_remote_docker
       - run: pip install -U cookiecutter
       - run: git config --global user.email "you@example.com"
       - run: git config --global user.name "Your Name"
