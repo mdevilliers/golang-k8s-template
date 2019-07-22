@@ -1,5 +1,6 @@
 {
     "project_name": "awesome-service",
     "docker_repository": "mdevilliers",
-    "github_account" : "mdevilliers"
+    "github_account" : "mdevilliers",
+    "golang_version" : "1.12"
 }
