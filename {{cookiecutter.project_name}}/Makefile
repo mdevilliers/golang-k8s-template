@@ -98,11 +98,13 @@ ifeq ("$(wildcard $(shell which gocov))","")
 endif
 	gocov test ${PKG_LIST} | gocov report
 
+# deploys to configured kubernetes instance
 .PHONY: deploy
-deploy: ## deploys to configured kubernetes instance
+deploy:
 	kubectl delete -f k8s/ 2>/dev/null; true
 	kubectl create -f k8s/
 
+# linting gods must be obeyed
 .PHONY: lint
 lint: $(BIN_OUTDIR)/golangci-lint/golangci-lint
 	$(BIN_OUTDIR)/golangci-lint/golangci-lint run
@@ -114,8 +116,3 @@ $(BIN_OUTDIR)/golangci-lint/golangci-lint:
 	chmod +x $(BIN_OUTDIR)/golangci-lint
 	rm -f $(GOLANGCI_LINT_ARCHIVE)
 
-# 'help' parses the Makefile and displays the help text
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-.PHONY: help
