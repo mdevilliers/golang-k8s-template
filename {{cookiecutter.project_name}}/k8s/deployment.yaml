@@ -1,17 +1,18 @@
-kind: ReplicationController
-apiVersion: v1
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: {{ cookiecutter.project_name }}-v1
+  name: {{ cookiecutter.project_name }}-deployment
+  labels:
+    app: {{ cookiecutter.project_name }}
 spec:
   replicas: 3
   selector:
-    name: {{ cookiecutter.project_name }}
-    version: "1"
+    matchLabels:
+      app: {{ cookiecutter.project_name }}
   template:
     metadata:
       labels:
-        name: {{cookiecutter.project_name}}
-        version: "1"
+        app: {{ cookiecutter.project_name }}
     spec:
       containers:
         - image: {{ cookiecutter.docker_repository }}/{{ cookiecutter.project_name }}:latest
