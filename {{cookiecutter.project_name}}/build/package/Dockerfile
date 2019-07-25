@@ -20,7 +20,7 @@ RUN make static
 
 # Stage 2 - Final Image
 # The application should be statically linked
-FROM alpine:3:10
+FROM alpine:3.10
 RUN apk update \
 	&& apk add --no-cache ca-certificates \
 	&& rm -rf /var/cache/apk/* \
