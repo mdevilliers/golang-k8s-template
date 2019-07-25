@@ -1,6 +1,6 @@
 # Stage 1 - Binary Build
 # BUILD_X args should be passed at build time as docker build args
-FROM golang:{{cookiecutter.golang_version}}-alpine AS builder
+FROM golang:{{cookiecutter.golang_version}}-alpine3.10 AS builder
 ARG BIN_VERSION
 ARG GIT_COMMIT
 ARG GIT_SHA
@@ -20,7 +20,7 @@ RUN make static
 
 # Stage 2 - Final Image
 # The application should be statically linked
-FROM alpine:latest
+FROM alpine:3:10
 RUN apk update \
 	&& apk add --no-cache ca-certificates \
 	&& rm -rf /var/cache/apk/* \

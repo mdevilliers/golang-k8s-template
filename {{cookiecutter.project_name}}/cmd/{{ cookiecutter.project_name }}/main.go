@@ -43,11 +43,10 @@ func rootCmd() *cobra.Command {
 	pflags.BoolVarP(&makeVerbose, "verbose", "v", makeVerbose, "verbose logging")
 	pflags.StringVar(&logLevel, "log-level", logLevel, "log level")
 	// Add sub commands
-	cmd.AddCommand(versionCmd())
+	registerVersionCommand(cmd)
 	return cmd
 }
 
-// initLogger constructs a default logger from config
 func initLogger(logLevel string, useConsole, makeVerbose bool) zerolog.Logger {
 	// Set logger level field to severity for stack driver support
 	zerolog.LevelFieldName = "severity"

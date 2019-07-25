@@ -65,10 +65,6 @@ info:
 # Build a statically linked binary
 .PHONY: static
 static: CGO = 0
-static: GOBUILDFLAGS += -a
-static: GOBUILDFLAGS += -tags netgo -installsuffix netgo
-static: GOBUILDFLAGS += -installsuffix netgo
-static: LDFLAGS += -a -extldflags "-static"
 static: build
 
 # Build a binary
@@ -104,7 +100,7 @@ deploy:
 	kubectl delete -f k8s/ 2>/dev/null; true
 	kubectl create -f k8s/
 
-# linting gods must be obeyed
+# the linting gods must be obeyed
 .PHONY: lint
 lint: $(BIN_OUTDIR)/golangci-lint/golangci-lint
 	$(BIN_OUTDIR)/golangci-lint/golangci-lint run
