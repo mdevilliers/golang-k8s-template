@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  check:
+    machine: true
+    steps:
+      - checkout
+      - run: pip install -U cookiecutter
+      - run: git config --global user.email "you@example.com"
+      - run: git config --global user.name "Your Name"
+      - run: make check
+workflows:
+  version: 2
+  all:
+    jobs:
+      - check
