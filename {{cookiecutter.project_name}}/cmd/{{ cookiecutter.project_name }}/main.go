@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/env"
+	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/healthcheck"
 	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/logger"
 	"github.com/rs/zerolog"
 	"github.com/spf13/cobra"
@@ -39,6 +40,14 @@ func rootCmd() *cobra.Command {
 			mv := env.LookUpWithDefaultBool("{{ cookiecutter.project_name | upper }}_LOG_VERBOSE", makeVerbose)
 
 			log = logger.New(ll, uc, mv)
+			return nil
+		},
+		RunE: func(cmd *cobra.Command, args []string) error {
+
+			// NOTE : this call will block, run as a go routine
+			// when you implement your service.
+			// TODO : configure the healthchecks - remove random failure.
+			healthcheck.Start(log)
 			return nil
 		},
 	}
