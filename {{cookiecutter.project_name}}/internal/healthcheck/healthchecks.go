@@ -6,9 +6,11 @@ import (
 	"net/http"
 
 	"github.com/heptiolabs/healthcheck"
+	"github.com/rs/zerolog"
 )
 
-func Configure(logger zerolog.Logger) {
+// Start initiates the healthchecks as an HTTP server
+func Start(logger zerolog.Logger) {
 
 	health := healthcheck.NewHandler()
 

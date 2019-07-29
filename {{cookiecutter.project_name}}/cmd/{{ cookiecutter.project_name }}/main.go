@@ -46,7 +46,8 @@ func rootCmd() *cobra.Command {
 
 			// NOTE : this call will block, run as a go routine
 			// when you implement your service.
-			healthcheck.Configure(log)
+			// TODO : configure the healthchecks - remove random failure.
+			healthcheck.Start(log)
 			return nil
 		},
 	}
