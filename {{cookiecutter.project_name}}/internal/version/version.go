@@ -16,6 +16,7 @@ var (
 
 // BuildTime returns the build timestamp
 func BuildTime() time.Time {
+	// nolint: errcheck
 	ts, _ := strconv.ParseInt(Timestamp, 10, 64)
 	return time.Unix(ts, 0).UTC()
 }

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"io"
 	"os"
 
-	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/version"
+	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/env"
+	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/logger"
 	"github.com/rs/zerolog"
 	"github.com/spf13/cobra"
 )
@@ -32,8 +32,13 @@ func rootCmd() *cobra.Command {
 		SilenceErrors: true,
 		SilenceUsage:  true,
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
+
 			// Setup default logger
-			log = initLogger(logLevel, useConsole , makeVerbose)
+			ll := env.LookUpWithDefaultStr("{{ cookiecutter.project_name | upper }}_LOG_LEVEL", logLevel)
+			uc := env.LookUpWithDefaultBool("{{ cookiecutter.project_name | upper }}_LOG_USE_CONSOLE", useConsole)
+			mv := env.LookUpWithDefaultBool("{{ cookiecutter.project_name | upper }}_LOG_VERBOSE", makeVerbose)
+
+			log = logger.New(ll, uc, mv)
 			return nil
 		},
 	}
@@ -45,28 +50,4 @@ func rootCmd() *cobra.Command {
 	// Add sub commands
 	registerVersionCommand(cmd)
 	return cmd
-}
-
-func initLogger(logLevel string, useConsole, makeVerbose bool) zerolog.Logger {
-	// Set logger level field to severity for stack driver support
-	zerolog.LevelFieldName = "severity"
-	var w io.Writer = os.Stdout
-	if useConsole {
-		w = zerolog.ConsoleWriter{
-			Out: os.Stdout,
-		}
-	}
-	// Parse level from config
-	lvl, err := zerolog.ParseLevel(logLevel)
-	if err != nil {
-		lvl = zerolog.InfoLevel
-	}
-	// Override level with verbose
-	if makeVerbose {
-		lvl = zerolog.DebugLevel
-	}
-	return zerolog.New(w).Level(lvl).With().Fields(map[string]interface{}{
-		"version": version.Version,
-		"app":     "{{cookiecutter.project_name}}",
-	}).Timestamp().Logger()
 }
