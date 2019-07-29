@@ -5,7 +5,6 @@ import (
 
 	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/env"
 	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/logger"
-	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/version"
 	"github.com/rs/zerolog"
 	"github.com/spf13/cobra"
 )
