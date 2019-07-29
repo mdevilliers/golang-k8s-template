@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io"
 	"os"
 
 	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/env"
@@ -36,9 +35,9 @@ func rootCmd() *cobra.Command {
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 
 			// Setup default logger
-			ll := env.FromEnvWithDefaultStr("SERVICE_LOG_LEVEL", logLevel)
-			uc := env.FromEnvWithDefaultBool("SERVICE_LOG_USE_CONSOLE", useConsole)
-			mv := env.FromEnvWithDefaultBool("SERVICE_LOG_VERBOSE", makeVerbose)
+			ll := env.LookUpWithDefaultStr("{{ cookiecutter.project_name | upper }}_LOG_LEVEL", logLevel)
+			uc := env.LookUpWithDefaultBool("{{ cookiecutter.project_name | upper }}_LOG_USE_CONSOLE", useConsole)
+			mv := env.LookUpWithDefaultBool("{{ cookiecutter.project_name | upper }}_LOG_VERBOSE", makeVerbose)
 
 			log = logger.New(ll, uc, mv)
 			return nil
@@ -52,3 +51,4 @@ func rootCmd() *cobra.Command {
 	// Add sub commands
 	registerVersionCommand(cmd)
 	return cmd
+}

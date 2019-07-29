@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/mdevilliers/cache-service/internal/version"
+	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/version"
 	"github.com/rs/zerolog"
 )
 
