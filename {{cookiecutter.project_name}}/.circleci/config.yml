@@ -3,7 +3,6 @@ jobs:
   build-svc:
     docker:
       - image: circleci/golang:{{cookiecutter.golang_version}}
-    working_directory: /{{cookiecutter.project_name}}
     steps:
       - checkout
       - run: make lint
