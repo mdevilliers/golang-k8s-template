@@ -21,7 +21,7 @@ Parameter              | Example          | Notes
 `project_name`         | awesome-service  | The name of your service
 `docker_repository`    | mdevilliers      | The name of the docker repository
 `github_account`       | mdevilliers      | Your github repository or user name
-`golang_version`       | 1.12.7           | Golang version
+`golang_version`       | 1.13             | Golang version
 
 ## Thanks
 
