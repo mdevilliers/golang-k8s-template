@@ -5,4 +5,4 @@ check:
 	cookiecutter --no-input -o ./check .
 	cd ./check/awesome-service; make image; make lint;
 	docker images
-	git diff
+	cd ./check/awesome-service; git diff
