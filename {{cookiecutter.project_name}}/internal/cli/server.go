@@ -10,7 +10,7 @@ import (
 	"github.com/emicklei/go-restful"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/mdevilliers/go/healthchecks"
-	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/logger"
+	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/logger"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
