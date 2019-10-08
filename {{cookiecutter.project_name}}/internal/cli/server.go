@@ -2,12 +2,9 @@ package cli
 
 import (
 	"context"
-	"net/http"
 	"os"
 	"os/signal"
-	"time"
 
-	"github.com/emicklei/go-restful"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/mdevilliers/go/healthchecks"
 	"github.com/{{cookiecutter.github_account}}/{{cookiecutter.project_name}}/internal/logger"
