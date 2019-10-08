@@ -41,7 +41,8 @@ func NewServerCmd() (*cobra.Command, error) {
 				"app": "server",
 			})
 
-			health := healthchecks.New(hasuraClient)
+			// TODO : add some healthchecks
+			health := healthchecks.New()
 			go func() {
 				if err := health.Start(":8086"); err != nil {
 					lgr.Fatal().Err(err).Msg("error running healthcheck HTTP server")
