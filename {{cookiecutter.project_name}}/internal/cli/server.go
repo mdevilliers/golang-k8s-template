@@ -35,7 +35,7 @@ func NewServerCmd() (*cobra.Command, error) {
 		Use: "server",
 		RunE: func(cmd *cobra.Command, args []string) error {
 
-			ctx := context.Background()
+			//ctx := context.Background()
 
 			lgr := logger.NewFromEnvironment(map[string]interface{}{
 				"app": "server",
